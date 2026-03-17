@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-navy font-sans text-lightestSlate antialiased;
+  background-image: linear-gradient(180deg, #0a192f 0%, #081425 100%);
+}
+
+::selection {
+  background: rgba(100, 255, 218, 0.2);
+  color: #ccd6f6;
+}
+
+@layer components {
+  .section-title {
+    @apply flex items-center gap-4 text-2xl font-semibold text-lightestSlate md:text-3xl;
+  }
+
+  .section-title::after {
+    content: '';
+    @apply h-px flex-1 bg-slate/30;
+  }
+
+  .nav-link {
+    @apply inline-flex items-center gap-4 text-sm font-semibold tracking-[0.25em] text-slate uppercase transition-all duration-300 ease-smooth hover:text-lightestSlate;
+  }
+
+  .nav-link.is-active {
+    @apply text-lightestSlate;
+  }
+
+  .nav-link-line {
+    @apply h-px w-12 bg-slate/60 transition-all duration-300 ease-smooth;
+  }
+
+  .nav-link.is-active .nav-link-line {
+    @apply w-20 bg-lightestSlate;
+  }
+
+  .nav-link:hover .nav-link-line {
+    @apply w-20 bg-lightestSlate;
+  }
+
+  .pill {
+    @apply rounded-full border border-accent/20 bg-accent/10 px-3 py-1 text-xs font-medium text-accent;
+  }
+
+  .primary-button {
+    @apply inline-flex items-center justify-center rounded-md border border-accent px-6 py-3 text-sm font-semibold text-accent transition-all duration-300 ease-smooth hover:-translate-y-1 hover:bg-accent/10;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/5 bg-white/[0.03] shadow-card backdrop-blur-sm transition-all duration-300 ease-smooth hover:-translate-y-1 hover:border-accent/30;
+  }
+
+  .experience-entry {
+    @apply border border-transparent bg-transparent transition-all duration-300 ease-smooth;
+  }
+
+  .experience-entry:hover {
+    @apply -translate-y-1 border-white/10 bg-white/[0.04] shadow-card;
+  }
+
+  .experience-heading {
+    @apply transition-colors duration-300 ease-smooth;
+  }
+
+  .experience-entry:hover .experience-heading {
+    @apply text-accent;
+  }
+
+  .experience-company,
+  .experience-range,
+  .experience-dot {
+    @apply transition-all duration-300 ease-smooth;
+  }
+
+  .experience-entry:hover .experience-company,
+  .experience-entry:hover .experience-range {
+    @apply text-lightestSlate;
+  }
+
+  .experience-entry:hover .experience-dot {
+    @apply scale-110 bg-lightestSlate;
+  }
+}
